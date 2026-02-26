@@ -1,0 +1,33 @@
+#+title: Ysap Notes
+
+Bash Scripting Course
+
+REPL - Read Eval Print Loop. Terminal exists as a REPL
+The terminal exists in a REPL (read, evaluate, print, loop)
+Terminal is a program on the machine. Also called a Terminal Emulator.
+That terminal runs a shell (abstraction layer that communicates input and output).
+The same terminal can run multiple or different shells inside it. Shells are stored in the system as a application, just like the terminal.
+A command runs another command; which in turn, can run more commands inside it.
+
+Bash, file finder and terminal always opens/exists in a folder.
+
+ls command to list the contents
+touch to create a file
+rm filename.extension to remove the file.
+mv to change the name (note - the terminal doesn't ask for permission, it will simply overwrite the file)
+rm and mv are powerful commands, can delete and move lots of files in seconds.
+rm command with -i flag will interactively ask you when deleting stuff.
+up and down arrows can help you navigate the commands you used earlier in the session (history).
+Some people like to alias rm with rm -i so that it always runs interactively.
+You can check if the command is an alias or not by using - $ alias n2
+history command to see the history of commands we have on our machine.
+bash has tab complete. It gives us options, if there are multiple options to complete with tab.
+hidden files start with a . character. Or rather files starting with . are generally hidden.
+To make them visible with ls, we use a -a flag
+
+** Searching files and inside files
+cat file.extension will print out the contents of the file on the screen
+grep pattern /path/to/file.extension will print out only the lines that contain the pattern of text given to the grep command.
+The pattern can also be a part of a word.
+Like grep it file.txt will give out lines containing it, fit, with... you get the idea.
+The quotes stop bash from reading special characters.
