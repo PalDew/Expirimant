@@ -8,7 +8,6 @@ Terminal is a program on the machine. Also called a Terminal Emulator.
 That terminal runs a shell (abstraction layer that communicates input and output).
 The same terminal can run multiple or different shells inside it. Shells are stored in the system as a application, just like the terminal.
 A command runs another command; which in turn, can run more commands inside it.
-
 Bash, file finder and terminal always opens/exists in a folder.
 
 ls command to list the contents
