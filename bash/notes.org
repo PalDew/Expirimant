@@ -30,3 +30,26 @@ grep pattern /path/to/file.extension will print out only the lines that contain 
 The pattern can also be a part of a word.
 Like grep it file.txt will give out lines containing it, fit, with... you get the idea.
 The quotes stop bash from reading special characters.
+
+** We also learnt about:
+$? which gives the stderr
+We also learned bout bash -n filename which checks the file for any errors.
+- for loops are always written in high-level syntax.
+for variable in list; do
+command
+done
+
+I noticed that we did not need to declare or initialize the variable before using it in bash.
+
+** Taking input
+We can use read to read command.
+read -p " Message to display" variable
+This gives us a prompt to enter when we echo the name.
+
+However, when we pipe the output of echo, we override the the prompt even when it is explicitly mentioned.
+Unix tricks like yes command that spams y -> This is fed into certain commands that ask for prompts.
+We can use to output y by piping y from yes command and pipe it into our hello script
+
+$1 reads out the first argument given to a command.
+So if we give name=$1 and ask it to echo $name. It will print out the first argument.
+If the first argument is blank, it prints out the blank argument.
