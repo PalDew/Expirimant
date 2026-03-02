@@ -2,6 +2,7 @@
 
 Bash Scripting Course
 
+** Introduction
 REPL - Read Eval Print Loop. Terminal exists as a REPL
 The terminal exists in a REPL (read, evaluate, print, loop)
 Terminal is a program on the machine. Also called a Terminal Emulator.
@@ -52,4 +53,10 @@ We can use to output y by piping y from yes command and pipe it into our hello s
 
 $1 reads out the first argument given to a command.
 So if we give name=$1 and ask it to echo $name. It will print out the first argument.
+$1 is the first argument then.
 If the first argument is blank, it prints out the blank argument.
+Similarly $@ represents all of the arguments
+
+** Loops
+The if loop is closed with a fi statement at the end.
+** Functions in Bash
