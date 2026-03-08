@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Case 1
+# for thing in {1..5}; do
+#     echo "thing is $thing."
+# done
+
+# Case 2
+## This syntax doesn't work
+### Becuase brace expansion happens before the variable expansion in Bash
+max=5
+# for thing in {1..$max};do
+#     echo "thing is $thing."
+# done
+
+# Case 3
+for (( i = 0; i < max; i++));do
+    echo "thing is $i"
+done

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+s=$1
+case "$s" in
+    dave )
+	echo "Hi dave"
+	;;
+    buddy )
+	echo "Hey there buddy!"
+	;;
+    guy )
+	echo "Here comes the guy!"
+	;;
+    *)
+	echo "Sorry, I do not recognize you, $s."
+	;;
+ esac

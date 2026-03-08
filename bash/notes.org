@@ -31,8 +31,7 @@ grep pattern /path/to/file.extension will print out only the lines that contain 
 The pattern can also be a part of a word.
 Like grep it file.txt will give out lines containing it, fit, with... you get the idea.
 The quotes stop bash from reading special characters.
-
-** We also learnt about:
+** we also learnt about:
 $? which gives the stderr
 We also learned bout bash -n filename which checks the file for any errors.
 - for loops are always written in high-level syntax.
@@ -60,3 +59,91 @@ Similarly $@ represents all of the arguments
 ** Loops
 The if loop is closed with a fi statement at the end.
 ** Functions in Bash
+A function is basically a repeatable piece of code. You want to do something, then you can call that function repeatedly, over and over, without writing the same features over and over.
+
+Example,in my greeter script, I have called Hello Script. Hello accepts only one argument per iteration. In our greeter program, we called Hello scipt until the arguments were finished.
+
+Only functions can manually return values.
+
+** Conditionals
+If and other comparison operators.
+
+Side note:
+Using double quotes is best when you want variable expansion.
+Single quotes will not do the variable expansion
+Using no quotes at all is just like using single quotes, but it doesn't handle multiple white-spaces well.
+
+We also learned about while-do loop.
+If you keep the body empty inside the do-while loop, bash throws a syntax error.
+
+There is also an until loop.
+It runs the loop while the condition is false.
+Mostly used for waiting in a script; for a user input or a condition to be fulfilled.
+
+True and False Commands
+true command gives the output as true and exit status as 0.
+
+** Input and Outut
+We read user input thorugh the read command.
+The read command reads from stdin, not from the arguments.
+We generally prefer the -r flag with it; because it does not allow \ as an escape character.
+The read command however, reads only the first line. I think it stops reading at the newline character.
+
+There is : command which does nothing. It just exits successfully.
+
+Reading file line-by-line in Bash is really slow, when compared to just cat and grepping the results.
+
+Each word or end of text has a new line character automatically added to it. We check it by running echo hello | xxd
+However, if we supress the new line character by using -n flag, our ./read_input script fais to read it.
+
+We can use < to read from the source. Just like how > replaces or writes the output to the file.
+This syntax can be anywhere. < file.txt ./read_input also works in the bash terminal.
+
+** Review of functions and loops
+We are given two functions hello and goodbye.
+Both take arguments. Read the first one and echo it to stdout.
+
+The main function has an if statement.
+If there is no argument given to the script, it echoes a message and exits with code 1 for error.
+The error message is sent to stderr instead of stdout. We use >&2
+Else
+It loops with a for loop, checking all the arguments.
+If the name starts with d or b, it calls hello function.
+Otherwise it calls the goobye function.
+The for loop ensures that we can give any number of arguments to the script, but the hello and goodbye functions only read them one at a time.
+
+** Case Statements
+The block is generally
+case option1)
+commands
+;;
+.
+.
+.
+*)
+commands
+;;
+esac
+
+Note - In the case (huehue) in where an input matches more than one of the cases; it will work and execute the first match and exit the case part of the code.
+
+In case you want it to fall through and execute all the cases below it, structure your program in such a way that the must-execute blocks are (i)not placed in the case statement or (ii) ends with ;& instead of ;;
+
+If you end your statements with ;;& it will not exit the case block, but continue to go below it. It will always match the last one because it is a * wildcard. Personally I think this is more useful and pratical than ending with ;&
+ 
+** Indexed Arrays
+We declare arrays like normal varaible.
+array=(foo,bar,baz)
+But if you call it like normal variable "$array", it only prints out first element.
+We can do it with "${array[]}"
+Even if you do "${array}", it expands to only the first element.
+If we use an array overflow. Like you put ${array[3]} and the number of elements are 3, then bash outputs a blank line.
+The $ sign in optional when you are using a variable to index an indexed array.
+
+Displaying all the elements of the array:
+echo "${array[*]}" or echo "${array[@]}"
+
+Use * when you want to treat the elements of the array as a string.
+Use @ when you want to treat each of the elements separately.
+
+
